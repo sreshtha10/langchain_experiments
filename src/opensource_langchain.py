@@ -1,9 +1,12 @@
 from langchain_community.chat_models import ChatOllama
+import streamlit as st
 
 llm = ChatOllama(model="gemma:2b")
 
-question = input('Enter the question\n')
+st.title('Ask a Question!')
 
-response = llm.invoke(question)
+question = st.text_input('')
 
-print(response)
+if question:
+    response = llm.invoke(question)
+    st.write(response.content)
