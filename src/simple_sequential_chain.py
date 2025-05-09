@@ -25,7 +25,7 @@ speech_prompt = PromptTemplate(
 
 st.title("Ask me to write a speech on any topic!")
 
-first_chain = title_prompt | llm | StrOutputParser()
+first_chain = title_prompt | llm | StrOutputParser() | (lambda title: (st.write(title), title)[1])
 second_chain = speech_prompt | llm
 final_chain = first_chain | second_chain
 
