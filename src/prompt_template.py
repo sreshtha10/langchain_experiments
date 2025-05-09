@@ -6,15 +6,17 @@ llm = ChatOllama(model="gemma:2b")
 st.title("Ask Gemma:2b a Question!")
 
 promp_template = PromptTemplate(
-    input_variables=["country"],
+    input_variables=["country","number_of_dishes","response_language"],
     template="""
-    You are an expert on food. Answer the following question: What is the most famous dish
-    of the {country}?
+    You are an expert on food. Answer the following question: What is the top {number_of_dishes} famous dish
+    of the {country}? Answer in {response_language}
     """
 )
 
-question = st.text_input("Enter the country?")
+country = st.text_input("Enter the country")
+number_of_dishes = st.number_input("Enter the number of dishes")
+response_language= st.text_input("Enter the response language")
 
-if question:
-    response = llm.invoke(promp_template.format(country=question))
+if country:
+    response = llm.invoke(promp_template.format(country=country,number_of_dishes=number_of_dishes,response_language=response_language))
     st.write(response.content)
