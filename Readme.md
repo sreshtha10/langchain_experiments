@@ -4,7 +4,7 @@
 2. Using Langchain community to use OpenSource Models.
 3. Prompt Templates
 4. LCEL and Chains
-5. Mainting Chat History.
+5. Mainting Chat History using ChatPromptTemplates
 6. Embeddings and Similarity Finder
 7. Vector Stores
 8. RAG
