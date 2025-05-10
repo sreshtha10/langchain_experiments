@@ -19,4 +19,5 @@ embedding_vector = llm.embed_query(user_input)
 
 docs = db.similarity_search_by_vector(embedding_vector)
 
-print(docs)
+for doc in docs:
+    print(doc.page_content)
