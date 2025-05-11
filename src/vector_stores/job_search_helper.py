@@ -14,10 +14,14 @@ chunks = text_splitters.split_documents(documents=document)
 
 db = Chroma.from_documents(chunks,llm)
 
-user_input = input("Enter the query")
-embedding_vector = llm.embed_query(user_input)
+retriever = db.as_retriever()
 
-docs = db.similarity_search_by_vector(embedding_vector)
+user_input = input("Enter the query\n")
+
+docs = retriever.invoke(user_input)
+# embedding_vector = llm.embed_query(user_input)
+
+# docs = db.similarity_search_by_vector(embedding_vector)
 
 for doc in docs:
     print(doc.page_content)
