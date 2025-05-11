@@ -6,7 +6,7 @@
 4. LCEL and Chains
 5. Mainting Chat History using ChatPromptTemplates
 6. Embeddings and Similarity Finder
-7. Vector Stores
-8. RAG
+7. Vector Stores and Retrievers
+8. RAG - Retrieval Augmented Generation
 9. Image Processing
 10. Agents
